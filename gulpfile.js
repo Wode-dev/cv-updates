@@ -1,9 +1,12 @@
 var gulp = require('gulp');
 const {
+    series,
     parallel,
     src,
     dest,
-    task
+    task,
+    watch,
+    start
 } = gulp;
 
 // Requires the gulp-sass plugin
@@ -33,20 +36,29 @@ task('compileSass', async function () {
 task('production', async function () {
     return parallel(
         function () {
-            return src('assets/scss/app.scss')
+            return src('resources/scss/app.scss')
                 .pipe(sass({
                     includePaths: ['./node_modules/']
                 }))
                 .pipe(cleanCSS())
-                .pipe(dest('./'));
+                .pipe(dest('assets/css'));
         },
         function () {
             return src('resources/js/app.js')
-                .pipe(webpack())
+                .pipe(webpack({
+                    output: {
+                        filename: 'app.js'
+                    }
+                }))
                 .pipe(minify())
                 .pipe(dest('assets/js'));
         }
     )
+});
+
+task('watch', function () {
+    watch('resources/scss/*.scss', parallel('compileSass'));
+    watch('resources/js/app.js', parallel('compileJavascript'));
 });
 
 task('default', async function () {
