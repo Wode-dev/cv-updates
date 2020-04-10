@@ -14,7 +14,11 @@ const minify = require('gulp-minify');
 
 task('compileJavascript', async function () {
     return src('resources/js/app.js')
-        .pipe(webpack())
+        .pipe(webpack({
+            output: {
+                filename: 'app.js'
+            }
+        }))
         .pipe(dest('assets/js'));
 });
 
