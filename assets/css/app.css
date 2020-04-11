@@ -7168,3 +7168,6 @@ body {
       .panel .front .title .by {
         font-size: 0.9rem;
         font-weight: bold; }
+
+#brazil-last-data {
+  color: var(--light) !important; }
