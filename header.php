@@ -9,7 +9,7 @@
 </head>
 <body>
 <nav>
-  <nav class="navbar navbar-light bg-light">
-    <span class="navbar-brand mb-0 h1">Auge Tecnologia</span>
+  <nav class="navbar navbar-dark bg-dark justify-content-center">
+    <span class="navbar-brand mb-0 h1">Coronavirus Updates</span>
   </nav>
 </nav>

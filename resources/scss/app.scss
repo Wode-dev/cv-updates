@@ -1,7 +1,48 @@
+$theme-colors: ("dark": #111612);
 @import "bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 
 * {
     font-family: 'Open Sans',
         sans-serif;
+}
+
+body {
+    background-color: var(--dark);
+}
+
+.panel {
+    position: relative;
+    width: 100vw;
+    height: 200px;
+
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        max-height: 100%;
+    }
+
+    .front {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100%;
+
+        .title {
+            margin-top: 30px;
+
+            .head {
+                max-width: 70vw;
+                font-size: 1.4rem;
+            }
+
+            .by {
+                font-size: 0.9rem;
+                font-weight: bold;
+            }
+        }
+    }
 }
